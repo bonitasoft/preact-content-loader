@@ -1,8 +1,9 @@
-import React from 'react'
+// noinspection ES6UnusedImports
+import { h } from 'preact';
 
 const Rect = props => {
-  const { x = 0, y = 0, radius = 0, width = 50, height = 50 } = props
-  return <rect x={x} y={y} rx={radius} ry={radius} width={width} height={height} />
-}
+  const { x = 0, y = 0, radius = 0, width = 50, height = 50 } = props;
+  return <rect x={x} y={y} rx={radius} ry={radius} width={width} height={height} />;
+};
 
-export default Rect
+export default Rect;

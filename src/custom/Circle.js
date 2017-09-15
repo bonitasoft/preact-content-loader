@@ -1,8 +1,9 @@
-import React from 'react'
+// noinspection ES6UnusedImports
+import { h } from 'preact';
 
 const Circle = props => {
-  const { x = 0, y = 0, radius = 50 } = props
-  return <circle cx={x} cy={y} r={radius} />
-}
+  const { x = 0, y = 0, radius = 50 } = props;
+  return <circle cx={x} cy={y} r={radius} />;
+};
 
-export default Circle
+export default Circle;

@@ -1,7 +1,8 @@
-import React from 'react'
-import Wrap from '../Wrap'
+// noinspection ES6UnusedImports
+import { h } from 'preact';
+import Wrap from '../Wrap';
 
-const CodeStyle = props => 
+const CodeStyle = props => {
   return (
     <Wrap {...props}>
       <rect x="0" y="0" rx="3" ry="3" width="70" height="10" />
@@ -17,7 +18,7 @@ const CodeStyle = props =>
 
       <rect x="0" y="60" rx="3" ry="3" width="30" height="10" />
     </Wrap>
-  )
-}
+  );
+};
 
-export default CodeStyle
+export default CodeStyle;

@@ -1,20 +1,23 @@
-# React Content Loader
+# Preact Content Loader
 
-Component in React and SVG with a collection of loaders that simulate the content will be loaded, similar to Facebook cards. 
+Component built based on SVG with a collection of loaders that simulate the content will be loaded, similar to Facebook cards. 
 
-And if you are looking for React Native, see [here.](https://github.com/virusvn/react-native-svg-animated-linear-gradient)
+This project is based on [@danilowoz](https://github.com/danilowoz) react implementation, however 100% ported to preact. **No use of `react-compat`**
+
+* If you are looking for a react version, see [here](https://github.com/danilowoz/react-content-loader).
+* if you are looking for React Native, see [here.](https://github.com/virusvn/react-native-svg-animated-linear-gradient)
 
 ## You can use it in two ways: 
 
 **First install the dependency:**
 ```sh
-npm i react-content-loader --save-dev
+npm i preact-content-loader --save-dev
 ```
 
 **Stylized:** [example](#facebook-style)
 ```jsx
 // import the component
-import ContentLoader from 'react-content-loader'
+import ContentLoader from 'preact-content-loader'
 
 const MyLoader = () => {
   return(
@@ -26,7 +29,7 @@ const MyLoader = () => {
 **Or in custom mode:** [example](#custom-style)
 ```jsx
 // import the component
-import ContentLoader, { Rect, Circle } from 'react-content-loader'
+import ContentLoader, { Rect, Circle } from 'preact-content-loader'
 
 const MyLoader = () => {
   return(
@@ -77,19 +80,13 @@ const MyLoader = () => {
 #### List Style
 ![List Style](https://user-images.githubusercontent.com/2671660/27986068-7a0040d6-63f9-11e7-8e54-dcb220e42fd7.gif)
 
-
 #### Custom Style
 ![Code Style](https://cloud.githubusercontent.com/assets/4838076/22760218/aa619f32-ee3c-11e6-9cd1-c4af9dd1278e.gif)
 
-### Todo
-- [x] Code component;
-- [x] Custom elements;
-- [x] List component;
-- [ ] React Native
-
 #### Credits
 
-[Boilerplate for creating React Npm packages with ES2015](https://github.com/juliancwirko/react-npm-boilerplate)
+- [React content loader](https://github.com/danilowoz/react-content-loader)
+- [Boilerplate for creating React Npm packages with ES2015](https://github.com/juliancwirko/react-npm-boilerplate)
 
 #### License
 

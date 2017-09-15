@@ -1,9 +1,10 @@
-import React from 'react'
-import uuid from 'uuid'
+// noinspection ES6UnusedImports
+import { h } from 'preact';
+import uuid from 'uuid';
 
 const Wrap = props => {
-  let idClip = uuid.v1()
-  let idGradient = uuid.v1()
+  let idClip = uuid.v1();
+  let idGradient = uuid.v1();
 
   return (
     <svg
@@ -14,7 +15,7 @@ const Wrap = props => {
     >
       <rect
         style={{ fill: `url(#${idGradient})` }}
-        clipPath={`url(#${idClip})`}
+        clip-path={`url(#${idClip})`}
         x="0"
         y="0"
         width={props.width}
@@ -25,7 +26,7 @@ const Wrap = props => {
         <clipPath id={`${idClip}`}>{props.children}</clipPath>
 
         <linearGradient id={`${idGradient}`}>
-          <stop offset="0%" stopColor={props.primaryColor}>
+          <stop offset="0%" stop-color={props.primaryColor}>
             <animate
               attributeName="offset"
               values="-2; 1"
@@ -33,7 +34,7 @@ const Wrap = props => {
               repeatCount="indefinite"
             />
           </stop>
-          <stop offset="50%" stopColor={props.secondaryColor}>
+          <stop offset="50%" stop-color={props.secondaryColor}>
             <animate
               attributeName="offset"
               values="-1.5; 1.5"
@@ -41,7 +42,7 @@ const Wrap = props => {
               repeatCount="indefinite"
             />
           </stop>
-          <stop offset="100%" stopColor={props.primaryColor}>
+          <stop offset="100%" stop-color={props.primaryColor}>
             <animate
               attributeName="offset"
               values="-1; 2"
@@ -52,7 +53,7 @@ const Wrap = props => {
         </linearGradient>
       </defs>
     </svg>
-  )
-}
+  );
+};
 
-export default Wrap
+export default Wrap;

@@ -1,5 +1,6 @@
-import React from 'react'
-import Wrap from '../Wrap'
+// noinspection ES6UnusedImports
+import { h } from 'preact';
+import Wrap from '../Wrap';
 
 const FacebookStyle = props => {
   return (
@@ -13,7 +14,7 @@ const FacebookStyle = props => {
       <rect x="0" y="100" rx="3" ry="3" width="400" height="10" />
       <rect x="0" y="120" rx="3" ry="3" width="360" height="10" />
     </Wrap>
-  )
-}
+  );
+};
 
-export default FacebookStyle
+export default FacebookStyle;

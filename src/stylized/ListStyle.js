@@ -1,5 +1,6 @@
-import React from 'react'
-import Wrap from '../Wrap'
+// noinspection ES6UnusedImports
+import { h } from 'preact';
+import Wrap from '../Wrap';
 
 const ListStyle = props => {
   return (
@@ -11,7 +12,7 @@ const ListStyle = props => {
       <rect x="20" y="80" rx="3" ry="3" width="200" height="10" />
       <rect x="20" y="100" rx="3" ry="3" width="80" height="10" />
     </Wrap>
-  )
-}
+  );
+};
 
-export default ListStyle
+export default ListStyle;

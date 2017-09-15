@@ -1,37 +1,40 @@
-import React from 'react'
+// noinspection ES6UnusedImports
+import { h } from 'preact';
 
-import {mount, render} from 'enzyme'
-import chai, {expect} from 'chai'
-import chaiEnzyme from 'chai-enzyme'
-import sinon from 'sinon'
+import { deep } from 'preact-render-spy';
+import { expect } from 'chai';
 
-chai.use(chaiEnzyme())
+import CodeStyle from '../../src/stylized/CodeStyle';
 
-import CodeStyle from '../../src/stylized/CodeStyle'
+describe('<CodeStyle />', () => {
+  let wrapper;
 
-describe('<CodeStyle />:', () => {
-    it('has a `svg`', () => {
-        const wrapper = render(<CodeStyle />)
-        expect(wrapper.find('svg')).to.have.length(1)
-    })
+  beforeEach(() => {
+    wrapper = deep(<CodeStyle />);
+  });
 
-    it('has a `rect` with `clip-path`', () => {
-        const wrapper = render(<CodeStyle />)
-        expect(wrapper.find('rect[clip-path]')).to.have.length(1)
-    })
+  it('has a `svg`', () => {
+    expect(wrapper.find('svg')).to.have.length(1);
+  });
 
-    it('has a `linearGradient`', () => {
-        const wrapper = render(<CodeStyle />)
-        expect(wrapper.find('linearGradient')).to.have.length(1)
-    })
+  it('has a `rect` with `clip-path`', () => {
+    expect(
+      wrapper
+        .find('rect')
+        .at(0)
+        .attr('clip-path')
+    ).to.be.contain('url(#');
+  });
 
-    it('has three `stop`', () => {
-        const wrapper = render(<CodeStyle />)
-        expect(wrapper.find('stop')).to.have.length(3)
-    })
+  it('has a `linearGradient`', () => {
+    expect(wrapper.find('linearGradient')).to.have.length(1);
+  });
 
-    it('has `stop` inside the `linearGradient`', () => {
-        const wrapper = render(<CodeStyle />)
-        expect(wrapper.find('stop').parent().is('lineargradient')).to.equal(true)
-    })
-})
+  it('has three `stop`', () => {
+    expect(wrapper.find('stop')).to.have.length(3);
+  });
+
+  it('has `stop` inside the `linearGradient`', () => {
+    expect(wrapper.find('linearGradient').find('stop')).to.have.length(3);
+  });
+});
