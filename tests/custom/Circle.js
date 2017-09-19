@@ -1,21 +1,20 @@
-import React from 'react'
+// noinspection ES6UnusedImports
+import { h } from 'preact';
 
-import {mount, render} from 'enzyme'
-import chai, {expect} from 'chai'
+import { deep } from 'preact-render-spy';
+import { expect } from 'chai';
 
-import Circle from '../../src/custom/Circle'
+import Circle from '../../src/custom/Circle';
 
 describe('<Circle />', () => {
-    let wrapper 
+  let wrapper;
 
-    beforeEach(() => {
-        wrapper = mount(<Circle />)
-    })
+  beforeEach(() => {
+    wrapper = deep(<Circle />);
+  });
 
-    it('has defaults props', () => {
-        const props = wrapper.props()
-
-        for ( let key in props )
-            expect(props[key]).to.not.equal(undefined)
-    })
-})
+  it('has defaults props', () => {
+    expect(wrapper.attrs()).to.deep.eq({});
+    expect(wrapper.output().attributes).to.deep.eq({ cx: 0, cy: 0, r: 50 });
+  });
+});

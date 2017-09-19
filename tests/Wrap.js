@@ -1,24 +1,21 @@
-import React from 'react'
+// noinspection ES6UnusedImports
+import { h } from 'preact';
 
-import {mount, render} from 'enzyme'
-import {expect} from 'chai'
-import sinon from 'sinon'
+import { shallow, deep } from 'preact-render-spy';
+import { expect } from 'chai';
 
-import ContentLoader from '../src/index'
-import Wrap, { generateId } from '../src/Wrap'
+import Wrap from '../src/Wrap';
 
-describe('<Wrap /> Check id`s to render the SVG', () => {
+describe("<Wrap /> Check id's to render the SVG", () => {
+  it('is mask with the same `idClip`', () => {
+    const wrapper = shallow(<Wrap />);
+    let idClip = wrapper.find('clipPath')[0].attributes.id;
+    expect(wrapper.find('rect')[0].attributes['clip-path']).to.be.equal(`url(#${idClip})`);
+  });
 
-    it('is mask with the same `idClip`', () => {
-        const wrapper = mount(<Wrap />)
-        let idClip = wrapper.render().find('clipPath')[0].attribs.id
-        expect(wrapper.render().find('rect[clip-path]')[0].attribs['clip-path']).to.have.equal(`url(#${idClip})`)
-    })
-
-    it('is linearGradient with the same `idClip`', () => {
-        const wrapper = mount(<Wrap />)
-        let idGradient = wrapper.render().find('linearGradient')[0].attribs.id
-        expect(wrapper.render().find('rect[clip-path]')[0].attribs['style']).to.have.equal(`fill: url(#${idGradient});`)
-    })
-
-})
+  it('is linearGradient with the same `idClip`', () => {
+    const wrapper = shallow(<Wrap />);
+    let idGradient = wrapper.find('linearGradient')[0].attributes.id;
+    expect(wrapper.find('rect')[0].attributes['style'].fill).to.have.equal(`url(#${idGradient})`);
+  });
+});

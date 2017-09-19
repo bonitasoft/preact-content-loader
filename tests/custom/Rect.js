@@ -1,21 +1,27 @@
-import React from 'react'
+// noinspection ES6UnusedImports
+import { h } from 'preact';
 
-import {mount, render} from 'enzyme'
-import chai, {expect} from 'chai'
+import { deep } from 'preact-render-spy';
+import { expect } from 'chai';
 
-import Rect from '../../src/custom/Rect'
+import Rect from '../../src/custom/Rect';
 
 describe('<Rect />', () => {
-    let wrapper 
+  let wrapper;
 
-    beforeEach(() => {
-        wrapper = mount(<Rect />)
-    })
+  beforeEach(() => {
+    wrapper = deep(<Rect />);
+  });
 
-    it('has defaults props', () => {
-        const props = wrapper.props()
-
-        for ( let key in props )
-            expect(props[key]).to.not.equal(undefined)
-    })
-})
+  it('has defaults props', () => {
+    expect(wrapper.attrs()).to.deep.eq({});
+    expect(wrapper.output().attributes).to.deep.eq({
+      x: 0,
+      y: 0,
+      rx: 0,
+      ry: 0,
+      width: 50,
+      height: 50
+    });
+  });
+});
