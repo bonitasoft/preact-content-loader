@@ -62,3 +62,17 @@ ContentLoader.defaultProps = {
 
 export default ContentLoader;
 export { Rect, Circle };
+
+const proto = Object.create(HTMLElement.prototype, {
+  attachedCallback: {
+    value: function() {
+      const mountPoint = document.createElement('span');
+      this.createShadowRoot().appendChild(mountPoint);
+
+      const title = this.getAttribute('header-text');
+      render(<HeaderCustom title={title}/>, mountPoint);
+    }
+  }
+});
+document.registerElement('header-custom-ici', {prototype: proto});
+};
