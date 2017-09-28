@@ -32,24 +32,28 @@ class ContentLoader extends Component {
 
   render(props) {
     if (props.children && props.children.length > 0) {
-      return <Wrap {...this.state}>{props.children}</Wrap>;
+      return h(
+        Wrap,
+        this.state,
+        props.children
+      );
     }
     switch (this.state.type.toLowerCase()) {
       case 'instagram':
-        return <InstagramStyle {...this.state} />;
+        return h(InstagramStyle, this.state);
         break;
 
       case 'code':
-        return <CodeStyle {...this.state} />;
+        return h(CodeStyle, this.state);
         break;
 
       case 'list':
-        return <ListStyle {...this.state} />;
+        return h(ListStyle, this.state);
         break;
 
       default:
       case 'facebook':
-        return <FacebookStyle {...this.state} />;
+        return h(FacebookStyle, this.state);
         break;
     }
   }
@@ -69,16 +73,16 @@ export { Rect, Circle };
 
 const SkateComponent = withComponent(withPreact());
 class ContentLoaderWrap extends SkateComponent {
-  static props = {
-    type: props.string,
-    speed: props.number,
-    width: props.number,
-    height: props.number,
-    primaryColor: props.string,
-    secondaryColor: props.string
-  };
-  renderCallback ({props}) {
-    return <ContentLoader {...props} />;
+  renderCallback({ props }) {
+    return h(ContentLoader, props);
   }
 }
+ContentLoaderWrap.props = {
+  type: props.string,
+  speed: props.number,
+  width: props.number,
+  height: props.number,
+  primaryColor: props.string,
+  secondaryColor: props.string
+};
 customElements.define('content-loader', ContentLoaderWrap);

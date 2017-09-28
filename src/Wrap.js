@@ -1,6 +1,8 @@
 // noinspection ES6UnusedImports
 import { h } from 'preact';
 import uuid from 'uuid';
+// import { props, withComponent } from 'skatejs/esnext';
+// import withPreact from '@skatejs/renderer-preact/esnext';
 
 const Wrap = props => {
   let idClip = uuid.v1();
@@ -57,3 +59,20 @@ const Wrap = props => {
 };
 
 export default Wrap;
+
+// const SkateComponent = withComponent(withPreact());
+// class WebComponentWrap extends SkateComponent {
+//   static props = {
+//     style: props.style,
+//     type: props.type,
+//     speed: props.speed,
+//     width: props.width,
+//     height: props.height,
+//     primaryColor: props.primaryColor,
+//     secondaryColor: props.secondaryColor
+//   };
+//   renderCallback ({props}) {
+//     return <Wrap {...props} />;
+//   }
+// }
+// customElements.define('content-loader-wrap', Wrap);

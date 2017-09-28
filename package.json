@@ -25,7 +25,8 @@
   },
   "scripts": {
     "watch": "babel --plugins transform-es2015-modules-umd src --watch --ignore tests --out-dir ./dist",
-    "build": "babel --plugins transform-es2015-modules-umd src --ignore tests --out-dir ./dist",
+    "build": "npm run build-esnext && babel --plugins transform-es2015-modules-umd src --ignore tests --out-dir ./dist",
+    "build-esnext": "BABEL_ENV=esnext babel src --out-dir ./dist/esnext",
     "lint": "eslint '{src,tests}/**/*.{js,jsx,json,css}'",
     "prettier": "prettier --write '{src,tests}/**/*.{js,jsx,json,css}'",
     "testonly": "mocha $npm_package_options_mocha",
@@ -62,6 +63,12 @@
     "webpack-dev-server": "^2.8.2"
   },
   "dependencies": {
-    "preact": "^8.2.5"
+    "@skatejs/renderer-preact": "^0.1.0",
+    "babel-preset-es2016": "^6.24.1",
+    "babel-preset-es2017": "^6.24.1",
+    "babel-preset-flow": "^6.23.0",
+    "babel-preset-stage-0": "^6.24.1",
+    "preact": "^8.2.5",
+    "skatejs": "^5.0.0-beta.3"
   }
 }
