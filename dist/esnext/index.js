@@ -1,3 +1,5 @@
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 // noinspection ES6UnusedImports
 import { h, Component } from 'preact';
 
@@ -30,30 +32,30 @@ class ContentLoader extends Component {
     };
   }
 
-  render(props) {
-    if (props.children && props.children.length > 0) {
+  render(props, state) {
+    if (!state.type) {
       return h(
         Wrap,
-        this.state,
+        state,
         props.children
       );
     }
-    switch (this.state.type.toLowerCase()) {
+    switch (state.type.toLowerCase()) {
       case 'instagram':
-        return h(InstagramStyle, this.state);
+        return h(InstagramStyle, state);
         break;
 
       case 'code':
-        return h(CodeStyle, this.state);
+        return h(CodeStyle, state);
         break;
 
       case 'list':
-        return h(ListStyle, this.state);
+        return h(ListStyle, state);
         break;
 
       default:
       case 'facebook':
-        return h(FacebookStyle, this.state);
+        return h(FacebookStyle, state);
         break;
     }
   }
@@ -73,6 +75,9 @@ export { Rect, Circle };
 
 const SkateComponent = withComponent(withPreact());
 class ContentLoaderWrap extends SkateComponent {
+  get props() {
+    return _extends({}, super.props, { children: h('slot', null) });
+  }
   renderCallback({ props }) {
     return h(ContentLoader, props);
   }

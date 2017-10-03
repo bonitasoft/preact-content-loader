@@ -30,26 +30,26 @@ class ContentLoader extends Component {
     };
   }
 
-  render(props) {
-    if (props.children && props.children.length > 0) {
-      return <Wrap {...this.state}>{props.children}</Wrap>;
+  render(props, state) {
+    if (!state.type) {
+      return <Wrap {...state}>{props.children}</Wrap>;
     }
-    switch (this.state.type.toLowerCase()) {
+    switch (state.type.toLowerCase()) {
       case 'instagram':
-        return <InstagramStyle {...this.state} />;
+        return <InstagramStyle {...state} />;
         break;
 
       case 'code':
-        return <CodeStyle {...this.state} />;
+        return <CodeStyle {...state} />;
         break;
 
       case 'list':
-        return <ListStyle {...this.state} />;
+        return <ListStyle {...state} />;
         break;
 
       default:
       case 'facebook':
-        return <FacebookStyle {...this.state} />;
+        return <FacebookStyle {...state} />;
         break;
     }
   }
@@ -77,6 +77,12 @@ class ContentLoaderWrap extends SkateComponent {
     primaryColor: props.string,
     secondaryColor: props.string
   };
+  get props() {
+    return {
+      ...super.props,
+      ...{ children: <slot /> }
+    };
+  }
   renderCallback ({props}) {
     return <ContentLoader {...props} />;
   }
