@@ -73,6 +73,10 @@ ContentLoader.defaultProps = {
 export default ContentLoader;
 export { Rect, Circle };
 
+function propsWithDefault(type, def) {
+  return _extends({}, type, { default: def });
+}
+
 const SkateComponent = withComponent(withPreact());
 class ContentLoaderWrap extends SkateComponent {
   get props() {
@@ -83,11 +87,11 @@ class ContentLoaderWrap extends SkateComponent {
   }
 }
 ContentLoaderWrap.props = {
-  type: props.string,
-  speed: props.number,
-  width: props.number,
-  height: props.number,
-  primaryColor: props.string,
-  secondaryColor: props.string
+  type: propsWithDefault(props.string, ContentLoader.defaultProps.type),
+  speed: propsWithDefault(props.number, ContentLoader.defaultProps.speed),
+  width: propsWithDefault(props.number, ContentLoader.defaultProps.width),
+  height: propsWithDefault(props.number, ContentLoader.defaultProps.height),
+  primaryColor: propsWithDefault(props.string, ContentLoader.defaultProps.primaryColor),
+  secondaryColor: propsWithDefault(props.string, ContentLoader.defaultProps.secondaryColor)
 };
 customElements.define('content-loader', ContentLoaderWrap);

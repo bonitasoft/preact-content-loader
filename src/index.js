@@ -67,15 +67,22 @@ ContentLoader.defaultProps = {
 export default ContentLoader;
 export { Rect, Circle };
 
+function propsWithDefault(type, def) {
+  return {
+    ...type,
+    ...{ default: def }
+  };
+}
+
 const SkateComponent = withComponent(withPreact());
 class ContentLoaderWrap extends SkateComponent {
   static props = {
-    type: props.string,
-    speed: props.number,
-    width: props.number,
-    height: props.number,
-    primaryColor: props.string,
-    secondaryColor: props.string
+    type: propsWithDefault(props.string, ContentLoader.defaultProps.type),
+    speed: propsWithDefault(props.number, ContentLoader.defaultProps.speed),
+    width: propsWithDefault(props.number, ContentLoader.defaultProps.width),
+    height: propsWithDefault(props.number, ContentLoader.defaultProps.height),
+    primaryColor: propsWithDefault(props.string, ContentLoader.defaultProps.primaryColor),
+    secondaryColor: propsWithDefault(props.string, ContentLoader.defaultProps.secondaryColor)
   };
   get props() {
     return {
@@ -83,7 +90,7 @@ class ContentLoaderWrap extends SkateComponent {
       ...{ children: <slot /> }
     };
   }
-  renderCallback ({props}) {
+  renderCallback({ props }) {
     return <ContentLoader {...props} />;
   }
 }

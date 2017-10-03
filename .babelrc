@@ -9,7 +9,7 @@
           }
         ],
         "flow",
-        "react",
+        "preact",
         "stage-0"
       ]
     },

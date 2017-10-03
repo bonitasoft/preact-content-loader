@@ -20,7 +20,7 @@ class WebComponentWrap extends SkateComponent {
     width: props.number,
     height: props.number
   };
-  renderCallback ({props}) {
+  renderCallback({ props }) {
     return <Rect {...props} />;
   }
 }
