@@ -4,15 +4,15 @@
   "description": "Content loader built with svg for Preact.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/lcustodio/preact-content-loader"
+    "url": "https://github.com/bonitasoft/preact-content-loader"
   },
-  "author": "Luis Custodio",
+  "author": "Bonitasoft",
   "license": "MIT",
   "jsnext:main": "index",
   "bugs": {
-    "url": "https://github.com/lcustodio/preact-content-loader/issues"
+    "url": "https://github.com/bonitasoft/preact-content-loader/issues"
   },
-  "homepage": "https://github.com/lcustodio/preact-content-loader",
+  "homepage": "https://github.com/bonitasoft/preact-content-loader",
   "keywords": [
     "loader",
     "loading",
