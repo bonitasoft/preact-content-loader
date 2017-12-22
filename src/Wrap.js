@@ -1,10 +1,14 @@
 // noinspection ES6UnusedImports
 import { h } from 'preact';
-import uuid from 'uuid';
+
+const randomId = () =>
+  Math.random()
+    .toString(36)
+    .substr(2, 9);
 
 const Wrap = props => {
-  let idClip = uuid.v1();
-  let idGradient = uuid.v1();
+  let idClip = randomId();
+  let idGradient = randomId();
 
   return (
     <svg
