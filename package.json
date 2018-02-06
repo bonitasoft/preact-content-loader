@@ -54,6 +54,7 @@
     "jsdom": "^8.1.0",
     "mocha": "^2.4.5",
     "nodemon": "^1.9.1",
+    "preact": "^8.2.5",
     "preact-render-spy": "^1.0.0-rc.8",
     "prettier": "^1.7.0",
     "sinon": "^1.17.3",
@@ -61,7 +62,7 @@
     "webpack": "^3.6.0",
     "webpack-dev-server": "^2.8.2"
   },
-  "dependencies": {
-    "preact": "^8.2.5"
+  "peerDependencies": {
+    "preact": "^7.0.0 || ^8.0.0"
   }
 }
