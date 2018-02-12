@@ -1,10 +1,10 @@
 // noinspection ES6UnusedImports
 import { h } from 'preact';
-import uuid from 'uuid';
+import uid from './uid';
 
 const Wrap = props => {
-  let idClip = uuid.v1();
-  let idGradient = uuid.v1();
+  let idClip = uid();
+  let idGradient = uid();
 
   return (
     <svg
