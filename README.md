@@ -42,6 +42,8 @@ const MyLoader = () => {
 }
 ```
 
+To easily create custom loaders, you can use [Create React Content Loader](http://danilowoz.com/create-react-content-loader/).
+
 
 ## Options
 
