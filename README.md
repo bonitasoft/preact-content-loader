@@ -1,5 +1,8 @@
 # Preact Content Loader
 
+| **2021-10-12. This project is archived and not updated anymore** |
+| -------- |
+
 Component built based on SVG with a collection of loaders that simulates the content will be loaded, similar to Facebook cards. 
 
 This project is based on [@danilowoz](https://github.com/danilowoz) react implementation, however 100% ported to preact. **No use of `react-compat`**
